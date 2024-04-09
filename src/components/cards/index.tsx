@@ -20,15 +20,15 @@ const CardContainer = ({ name }: CardContainerProps) => {
   const currentImage = backgroundPics[0].url;
   return (
     <Card
-      className="relative overflow-hidden hover:scale-105 ease-in duration-100 w-[250px] h-[350px]"
+      className="relative overflow-hidden bg-hpcover hover:scale-105 ease-in duration-150 w-[250px] h-[325px]"
       style={{
-        backgroundImage: `url(${currentImage})`,
+        // backgroundImage: `url(${currentImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <CardContent className="absolute inset-0 flex items-center text-4xl justify-center">
-        <div className="text-red-500">{name}</div>
+      <CardContent className="absolute inset-0 flex items-center transition-all hover:scale-115 font-semibold text-5xl  justify-center">
+        <div className="text-grey-500 opacity-75 ">{name}</div>
       </CardContent>
     </Card>
   );

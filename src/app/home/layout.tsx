@@ -14,7 +14,7 @@ export default function HomeLayout({
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000); // Change image every 5 seconds (adjust as needed)
+    }, 20000); // Change image every 5 seconds (adjust as needed)
 
     return () => clearInterval(interval);
   }, []);
@@ -22,7 +22,7 @@ export default function HomeLayout({
   const currentImage = images[currentImageIndex].url;
   return (
     <div
-      className="w-full h-screen bg-cover m-0 text-white"
+      className="w-full h-screen overflow-hidden bg-cover m-0 text-white"
       style={{ backgroundImage: `url(${currentImage})` }}
     >
       <Navbar />

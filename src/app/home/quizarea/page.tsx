@@ -2,6 +2,8 @@
 import PlayersInGame from "@/components/playersInGame";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ProgressLoader from "@/lib/helper-functions/progressloader";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface Answer {
@@ -11,11 +13,17 @@ interface Answer {
 }
 interface Question {
   question: string;
-  answers: Answer[];
+  answers?: Answer[];
+  image?: string | undefined;
 }
 
 const QuizArea = () => {
-  const [question, setQuestion] = useState<string>("");
+  const [progress, setProgress] = useState<number>(0);
+  const [totalQuestions, setTotalQuestions] = useState<number>(15);
+  const [question, setQuestion] = useState<Question>({
+    question: "",
+    image: "",
+  });
   const [score, setScore] = useState<number>(0);
   const [answers, setAnswers] = useState<Answer[]>([
     {
@@ -25,7 +33,11 @@ const QuizArea = () => {
     },
   ]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const dummyQuestion = "Who is the oldest?";
+  const dummyQuestion = {
+    question: "Who is the youngest Weasley?",
+    image:
+      "https://images.unsplash.com/photo-1664700596250-0c0f4832ef98?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  };
 
   //   const currentQuestion: Question
 
@@ -45,6 +57,7 @@ const QuizArea = () => {
     const correct = answers.find((a) => a.answer === answer)?.correct;
     if (correct) {
       setScore(score + 1);
+      setProgress(progress + 1);
     }
   };
 
@@ -64,14 +77,27 @@ const QuizArea = () => {
   };
 
   return (
-    <div className="flex w-full h-full items-center justify-center">
+    <div className="relative flex md:flex-row gap-5 flex-col w-full h-full items-center justify-center">
       <PlayersInGame />
-      <Card className="flex w-[650px] h-[300px] ">
-        <CardContent className="flex flex-row w-full items-center gap-5">
-          <div className="w-1/2 flex text-2xl font-semibold h-full justify-center items-center">
-            {question}
+      <div className="flex flex-row gap-2 absolute items-center  md:bottom-[525px] top-[135px] w-[350px]">
+        <ProgressLoader value={progress} maxValue={totalQuestions} />
+        {progress + "/" + totalQuestions}
+      </div>
+      <Card className="flex md:w-[650px] md:h-[300px]  w-[370px]">
+        <CardContent className="flex md:flex-row flex-col w-full items-center gap-5">
+          <div className="w-[250px] flex flex-col gap-2 text-2xl font-semibold h-full justify-center items-center text-center">
+            {question.question}
+            {question.image && (
+              <Image
+                src={question?.image!}
+                width={100}
+                height={100}
+                className="w-[240px] h-[160px] rounded-lg"
+                alt="question"
+              />
+            )}
           </div>
-          <div className="w-1/2 flex flex-col gap-4 h-full justify-center items-start">
+          <div className="md:w-1/2 flex flex-col gap-4 h-full justify-center items-start">
             {answers.map((answer) => (
               <div key={answer.id} className="flex flex-row gap-2 ">
                 <Button

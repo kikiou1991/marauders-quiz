@@ -29,7 +29,7 @@ const PlayersInGame = () => {
   }, []);
 
   return (
-    <div className="flex flex-col bg-white text-black font-semibold min-h-[300px] w-[150px] justify-evenly p-2 rounded-lg mr-5">
+    <div className="flex md:flex-col flex-row bg-white text-black font-semibold md:min-h-[300px] md:w-[150px] w-[370px] h-[150px] justify-evenly p-2 rounded-lg ">
       {players.map((player) => (
         <div key={player.id} className="flex flex-row gap-2 items-center">
           <Avatar className="AvatarRoot">

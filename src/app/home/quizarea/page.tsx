@@ -1,4 +1,5 @@
 "use client";
+import PlayersInGame from "@/components/playersInGame";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import React, { useEffect, useState } from "react";
@@ -9,7 +10,7 @@ interface Answer {
   id: number;
 }
 
-const QuizArea: React.FC = () => {
+const QuizArea = () => {
   const [question, setQuestion] = useState<string>("");
   const [score, setScore] = useState<number>(0);
   const [answers, setAnswers] = useState<Answer[]>([
@@ -58,6 +59,7 @@ const QuizArea: React.FC = () => {
 
   return (
     <div className="flex w-full h-full items-center justify-center">
+      <PlayersInGame />
       <Card className="flex w-[650px] h-[300px] ">
         <CardContent className="flex flex-row w-full items-center gap-5">
           <div className="w-1/2 flex text-2xl font-semibold h-full justify-center items-center">

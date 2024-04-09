@@ -9,6 +9,10 @@ interface Answer {
   correct: boolean;
   id: number;
 }
+interface Question {
+  question: string;
+  answers: Answer[];
+}
 
 const QuizArea = () => {
   const [question, setQuestion] = useState<string>("");
@@ -22,6 +26,8 @@ const QuizArea = () => {
   ]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const dummyQuestion = "Who is the oldest?";
+
+  //   const currentQuestion: Question
 
   const dummyAnswer: Answer[] = [
     { answer: "Harry", correct: false, id: 1 },

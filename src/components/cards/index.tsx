@@ -1,0 +1,37 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { backgroundPics } from "@/lib/data/pics";
+
+interface CardContainerProps {
+  name?: string;
+}
+
+const CardContainer = ({ name }: CardContainerProps) => {
+  const currentImage = backgroundPics[0].url;
+  return (
+    <Card
+      className="relative overflow-hidden hover:scale-105 ease-in duration-100 w-[250px] h-[350px]"
+      style={{
+        backgroundImage: `url(${currentImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <CardContent className="absolute inset-0 flex items-center text-4xl justify-center">
+        <div className="text-red-500">{name}</div>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default CardContainer;

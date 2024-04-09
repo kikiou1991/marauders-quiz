@@ -7,10 +7,10 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-row mt-5">
+    <div className="flex flex-row mt-0 pt-5 ">
       <div className="ml-10">Logo</div>
       <div className="ml-auto mr-10 flex flex-row gap-5">
-        <Link href="/play">Play</Link>
+        <Link href="/home/play">Play</Link>
         {pathname !== "/auth/login" && <Link href="/auth/login">Login</Link>}
         {pathname !== "/auth/register" && (
           <Link href="/auth/register">Register</Link>

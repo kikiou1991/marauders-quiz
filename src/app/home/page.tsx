@@ -31,12 +31,12 @@ export default function Home() {
 
       <div className="flex flex-col gap-5 w-full items-center h-screen justify-center ">
         <h1>Something in the middle</h1>
-        <div className="flex flex-row gap-5 ">
+        <div cy-data="card-container" className="flex flex-row gap-5 ">
           <CardContainer name={"Easy"} />
           <CardContainer name={"Hard"} />
         </div>
       </div>
-      <div className="absolute left-14 bottom-20">
+      <div cy-data="about-section" className="absolute left-14 bottom-20">
         <About />
       </div>
     </div>

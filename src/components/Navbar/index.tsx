@@ -8,12 +8,22 @@ const Navbar = () => {
 
   return (
     <div className="flex flex-row mt-0 pt-5 ">
-      <div className="ml-10">Logo</div>
+      <div cy-data="siteLogo" className="ml-10">
+        Logo
+      </div>
       <div className="ml-auto mr-10 flex flex-row gap-5">
-        <Link href="/home/play">Play</Link>
-        {pathname !== "/auth/login" && <Link href="/auth/login">Login</Link>}
+        <Link cy-data="play-btn" href="/home/play">
+          Play
+        </Link>
+        {pathname !== "/auth/login" && (
+          <Link cy-data="login-btn" href="/auth/login">
+            Login
+          </Link>
+        )}
         {pathname !== "/auth/register" && (
-          <Link href="/auth/register">Register</Link>
+          <Link cy-data="register-btn" href="/auth/register">
+            Register
+          </Link>
         )}
       </div>
     </div>

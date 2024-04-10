@@ -20,6 +20,7 @@ const CardContainer = ({ name }: CardContainerProps) => {
   const currentImage = backgroundPics[0].url;
   return (
     <Card
+      cy-data="card-container-single"
       className="relative overflow-hidden bg-hpcover hover:scale-105 ease-in duration-150 w-[250px] h-[325px]"
       style={{
         // backgroundImage: `url(${currentImage})`,

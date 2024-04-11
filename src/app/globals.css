@@ -223,7 +223,7 @@
   }
 
   .icon {
-    fill: #d31145; /* Adjust this color as needed */
+    fill: #d31145;
   }
 
   &:nth-child(odd) {
@@ -239,31 +239,31 @@
   }
 
   &:nth-child(3n) {
-    animation-delay: -0.5s;
+    animation-delay: -0.65s;
   }
 
   &:nth-child(4n) {
-    animation-delay: -0.75s;
-  }
-
-  &:nth-child(5n) {
-    animation-delay: -1s;
-  }
-
-  &:nth-child(6n) {
     animation-delay: -1.25s;
   }
 
+  &:nth-child(5n) {
+    animation-delay: -1.65s;
+  }
+
+  &:nth-child(6n) {
+    animation-delay: -2.05s;
+  }
+
   &:nth-child(7n) {
-    animation-delay: -1.5s;
+    animation-delay: -2.45s;
   }
 
   &:nth-child(8n) {
-    animation-delay: -1.75s;
+    animation-delay: -2.85s;
   }
 
   &:nth-child(9n) {
-    animation-delay: -2s;
+    animation-delay: -3.25s;
   }
 
   &:nth-child(10n) {
@@ -282,15 +282,15 @@
 }
 
 .second-set {
-  top: 15%;
-  left: 5%;
-  transform: rotate(30deg) translate(-50%, 0%);
+  top: 25%;
+  left: 10%;
+  transform: rotate(20deg) translate(-50%, 0%);
 }
 
 .second-set2 {
-  top: 45%;
+  top: 25%;
   right: 15%;
-  transform: rotate(-30deg) translate(-50%, 0%);
+  transform: rotate(-20deg) translate(-50%, 0%);
 }
 
 .second-set3 {

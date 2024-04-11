@@ -79,9 +79,13 @@ const QuizArea = () => {
   return (
     <div className="relative flex md:flex-row gap-5 flex-col w-full h-full items-center justify-center">
       <PlayersInGame />
-      <div className="flex flex-row gap-2 absolute items-center  md:bottom-[525px] top-[135px] w-[350px]">
-        <ProgressLoader value={progress} maxValue={totalQuestions} />
-        {progress + "/" + totalQuestions}
+      <div className="flex flex-row gap-2 absolute items-center md:bottom-[525px] top-[135px] w-[350px]">
+        <div className="w-full absolute bottom-0 left-16 mb-5">
+          <ProgressLoader value={progress} maxValue={totalQuestions} />
+          <div className="absolute top-3 right-2">
+            {progress + "/" + totalQuestions}
+          </div>
+        </div>
       </div>
       <Card className="flex md:w-[650px] md:h-[300px]  w-[370px]">
         <CardContent className="flex md:flex-row flex-col w-full items-center gap-5">
@@ -105,7 +109,7 @@ const QuizArea = () => {
                   disabled={selectedAnswer !== null}
                   className={`${getBackgroundColor(
                     answer.answer
-                  )} w-[300px] text-black text-xl p-3 rounded-lg ${getHoverColor(
+                  )} w-[300px] text-black text-xl p-3 shadow-md shadow-slate-400 border-2 border-slate-300 rounded-lg ${getHoverColor(
                     answer.answer
                   )} hover:cursor-pointer`}
                 >

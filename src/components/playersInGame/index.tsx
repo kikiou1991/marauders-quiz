@@ -2,6 +2,12 @@
 import React, { useEffect } from "react";
 import { Avatar, Image } from "@radix-ui/react-avatar";
 
+interface Player {
+  name: string;
+  id: number;
+  score: number;
+}
+
 const PlayersInGame = () => {
   const [players, setPlayers] = React.useState([
     {
@@ -11,7 +17,7 @@ const PlayersInGame = () => {
     },
   ]);
 
-  const dummyPlayers = [
+  const dummyPlayers: Player[] = [
     {
       name: "Gabi",
       id: 1,
@@ -33,13 +39,13 @@ const PlayersInGame = () => {
   }, []);
 
   return (
-    <div className="flex md:flex-col flex-row bg-white text-black font-semibold md:min-h-[300px] md:w-[150px] w-[390px] h-[150px] justify-evenly p-2 rounded-lg ">
+    <div className="flex md:flex-col flex-row bg-white text-black font-semibold md:min-h-[300px] md:w-[180px] w-[370px] h-[150px] justify-evenly p-2 rounded-lg ">
       {players
         .sort((a, b) => b.score - a.score)
         .map((player) => (
           <div
             key={player.id}
-            className="flex flex-row gap-2 items-center p-2 border-2 rounded-lg bg-slate-200 border-slate-300"
+            className="flex flex-row md:gap-2 w-[110px] md:w-full items-center p-3 border-2 rounded-lg bg-slate-200 border-slate-300"
           >
             <Avatar className="AvatarRoot">
               <Image

@@ -57,8 +57,8 @@ const QuizArea = () => {
     const correct = answers.find((a) => a.answer === answer)?.correct;
     if (correct) {
       setScore(score + 1);
-      setProgress(progress + 1);
     }
+    setProgress(progress + 1);
   };
 
   const getBackgroundColor = (answer: string): string => {
@@ -79,8 +79,8 @@ const QuizArea = () => {
   return (
     <div className="relative flex md:flex-row gap-5 flex-col w-full h-full items-center justify-center">
       <PlayersInGame />
-      <div className="flex flex-row gap-2 absolute items-center md:bottom-[525px] top-[135px] w-[350px]">
-        <div className="w-full absolute bottom-0 left-16 mb-5">
+      <div className="flex flex-row  gap-2 absolute items-center md:bottom-[525px] top-[135px] w-[350px]">
+        <div className="w-full absolute md:bottom-0 md:left-16 bottom-0 left-0 mb-5">
           <ProgressLoader value={progress} maxValue={totalQuestions} />
           <div className="absolute top-3 right-2">
             {progress + "/" + totalQuestions}
